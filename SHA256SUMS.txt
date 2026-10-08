@@ -1,1 +1,1 @@
-98d9abecc1a226b653ae6477da6d67f890fc0ce2af3299c39ca75063630387ca  dm-only-0.5.8-distribution-sample.apk
+1c8b2bb0d59c85b1e9d4127448d1a9e4963326ecc58ae8e652ba2d98b73f35bd  directonly-0.5.9-android.apk
