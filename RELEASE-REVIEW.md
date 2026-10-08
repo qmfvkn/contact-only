@@ -1,6 +1,6 @@
 # 배포 점검 결과 — 2026-10-08
 
-대상: 연락만 샘플 0.5.7 (app.contactonly.sample, versionCode 8)
+대상: DM만 0.5.8 (app.contactonly.sample, versionCode 9)
 
 ## 확인된 사항
 
