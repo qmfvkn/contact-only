@@ -57,7 +57,7 @@ class MainActivity : Activity() {
             insets.consumeSystemWindowInsets()
         }
         header = LinearLayout(this).apply { gravity = android.view.Gravity.CENTER_VERTICAL; setPadding(dp(18), dp(4), dp(8), dp(4)); setBackgroundColor(green) }
-        heading = TextView(this).apply { text = "연락만 샘플"; textSize = 21f; gravity = android.view.Gravity.CENTER_VERTICAL; setTextColor(Color.WHITE) }
+        heading = TextView(this).apply { text = "DM만"; textSize = 21f; gravity = android.view.Gravity.CENTER_VERTICAL; setTextColor(Color.WHITE) }
         header.addView(heading, LinearLayout.LayoutParams(0, dp(48), 1f))
         header.addView(icon(R.drawable.ic_contact_bell, "알림") { notificationSettings() }, LinearLayout.LayoutParams(dp(48), dp(48)))
         header.addView(icon(R.drawable.ic_contact_gear, "설정") { settings() }, LinearLayout.LayoutParams(dp(48), dp(48)))
@@ -136,7 +136,7 @@ class MainActivity : Activity() {
     }
     private fun testNotification() {
         if (!DmNotifications.show(this, test = true)) {
-            Toast.makeText(this, "먼저 연락만의 알림 권한과 DM 알림 채널을 켜주세요", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "먼저 DM만의 알림 권한과 DM 알림 채널을 켜주세요", Toast.LENGTH_LONG).show()
             requestNotificationPermission()
         }
     }
@@ -148,8 +148,8 @@ class MainActivity : Activity() {
         val lastText = if (last == 0L) "아직 없음" else java.text.DateFormat.getDateTimeInstance(java.text.DateFormat.SHORT, java.text.DateFormat.SHORT).format(java.util.Date(last))
         val lastEvent = preferences.getLong("last_instagram_event", 0)
         val lastEventText = if (lastEvent == 0L) "아직 없음" else if (preferences.getBoolean("last_event_dm", false)) "DM으로 인식" else "DM으로 확인되지 않아 건너뜀"
-        val message = "공식 인스타 앱이 수신한 DM 알림을 연락만으로 연결합니다. 공식 앱의 로그인과 DM 알림을 켜두세요.\n\n" +
-            "연결 기능: ${status(active)}\n알림 접근 권한: ${status(InstagramNotificationListener.accessGranted(this))}\n연락만 알림 권한: ${status(DmNotifications.enabled(this))}\n감지 서비스: ${if (InstagramNotificationListener.connected) "연결됨" else "연결 대기"}\n마지막 DM 연결: $lastText\n최근 인스타 알림: $lastEventText\n\n" +
+        val message = "공식 인스타 앱이 수신한 DM 알림을 DM만으로 연결합니다. 공식 앱의 로그인과 DM 알림을 켜두세요.\n\n" +
+            "연결 기능: ${status(active)}\n알림 접근 권한: ${status(InstagramNotificationListener.accessGranted(this))}\nDM만 알림 권한: ${status(DmNotifications.enabled(this))}\n감지 서비스: ${if (InstagramNotificationListener.connected) "연결됨" else "연결 대기"}\n마지막 DM 연결: $lastText\n최근 인스타 알림: $lastEventText\n\n" +
             "메시지 내용과 발신자 이름을 복사하지 않습니다. 공식 인스타 앱이 알림을 보내지 않으면 연결할 수 없습니다."
         AlertDialog.Builder(this).setTitle("DM 알림")
             .setMessage(message).setPositiveButton("설정하기") { _, _ -> notificationActions() }
@@ -160,7 +160,7 @@ class MainActivity : Activity() {
         val preferences = InstagramNotificationListener.prefs(this)
         val hide = preferences.getBoolean("hide_original", false)
         AlertDialog.Builder(this).setTitle("DM 알림 설정")
-            .setItems(arrayOf(if (enabled) "알림 연결 끄기" else "알림 연결 켜기", "1. 연락만 알림 권한", "2. 알림 접근 권한", "테스트 알림 보내기",
+            .setItems(arrayOf(if (enabled) "알림 연결 끄기" else "알림 연결 켜기", "1. DM만 알림 권한", "2. 알림 접근 권한", "테스트 알림 보내기",
                 if (hide) "원본 인스타 DM 알림 유지하기" else "원본 인스타 DM 알림 숨기기")) { _, which ->
                 when (which) {
                     0 -> if (enabled) {
@@ -173,14 +173,14 @@ class MainActivity : Activity() {
                     3 -> testNotification()
                     4 -> {
                         preferences.edit().putBoolean("hide_original", !hide).apply()
-                        Toast.makeText(this, if (!hide) "연락만 알림을 보낸 경우에만 원본 DM 알림을 숨겨요" else "원본 알림도 유지해요", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, if (!hide) "DM만 알림을 보낸 경우에만 원본 DM 알림을 숨겨요" else "원본 알림도 유지해요", Toast.LENGTH_LONG).show()
                     }
                 }
             }.show()
     }
     private fun explainNotificationAccess() {
         AlertDialog.Builder(this).setTitle("알림 연결 권한 안내")
-            .setMessage("Android의 알림 접근 권한은 다른 앱 알림에도 접근할 수 있는 넓은 권한입니다. 연락만은 인스타 패키지만 처리하고, DM 여부는 알림 종류와 채널 정보로 판단합니다. 메시지 본문을 저장하거나 서버로 보내지 않습니다.\n\n공식 인스타 앱과 연락만에 같은 계정으로 로그인하세요. 여러 계정을 쓰면 받은편지함 계정이 다를 수 있습니다.\n\n다음 설정 화면에서 ‘연락만 · 인스타 DM 알림 연결’을 허용하세요. 설치 출처에 따라 Android가 제한된 설정으로 막을 수 있습니다.")
+            .setMessage("Android의 알림 접근 권한은 다른 앱 알림에도 접근할 수 있는 넓은 권한입니다. DM만은 인스타 패키지만 처리하고, DM 여부는 알림 종류와 채널 정보로 판단합니다. 메시지 본문을 저장하거나 서버로 보내지 않습니다.\n\n공식 인스타 앱과 DM만에 같은 계정으로 로그인하세요. 여러 계정을 쓰면 받은편지함 계정이 다를 수 있습니다.\n\n다음 설정 화면에서 ‘DM만 · 인스타 DM 알림 연결’을 허용하세요. 설치 출처에 따라 Android가 제한된 설정으로 막을 수 있습니다.")
             .setNegativeButton("취소", null).setPositiveButton("연결 설정") { _, _ ->
                 InstagramNotificationListener.prefs(this).edit().putBoolean("relay_enabled", true).apply()
                 if (android.os.Build.VERSION.SDK_INT >= 33 && checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) != android.content.pm.PackageManager.PERMISSION_GRANTED) {
@@ -190,7 +190,7 @@ class MainActivity : Activity() {
     }
     private fun openNotificationAccess() {
         try { startActivity(Intent(android.provider.Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS)) }
-        catch (_: Exception) { Toast.makeText(this, "휴대폰 설정에서 ‘알림 접근’을 찾아 연락만을 허용해주세요", Toast.LENGTH_LONG).show() }
+        catch (_: Exception) { Toast.makeText(this, "휴대폰 설정에서 ‘알림 접근’을 찾아 DM만을 허용해주세요", Toast.LENGTH_LONG).show() }
     }
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
@@ -330,7 +330,7 @@ class MainActivity : Activity() {
         AlertDialog.Builder(this).setTitle("테마").setSingleChoiceItems(arrayOf("밝은 테마","어두운 테마"),if(dark)1 else 0){dialog,index->prefs.edit().putString("background_mode",if(index==1)"dark" else "light").apply();applyWallpaperColors();dialog.dismiss()}.setNegativeButton("닫기",null).show()
     }
     private fun settings() {
-        AlertDialog.Builder(this).setTitle("연락만 · 배포 샘플 0.5.7")
+        AlertDialog.Builder(this).setTitle("DM만 · 배포 샘플 0.5.8")
             .setItems(arrayOf("DM으로 돌아가기", "로그아웃 · 웹 데이터 삭제", "앱 안내", "DM 알림", "테마")) { _, which ->
                 when (which) {
                     0 -> inbox()
