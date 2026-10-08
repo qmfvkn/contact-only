@@ -1,59 +1,79 @@
-# DM만 · DM Only
+# DirectOnly
 
-### No 피드, No 릴스. DM만 하고, 시간을 되찾으세요.
+### Distraction-free Instagram DMs for Android
 
-답장 하나 하려고 Instagram을 열었다가, 어느새 릴스와 게시물을 보고 있던 적 있나요?
+**No feed. No endless Reels. Just messages.**
 
-**DM만은 DM에 집중하기 위한 Android 앱입니다.** 필요한 대화만 확인하고, 끝없이 이어지는 콘텐츠 대신 내 시간으로 돌아오세요.
+[한국어 · DM만](README.ko.md) · [Download APK](https://github.com/qmfvkn/contact-only/releases/tag/v0.5.9-sample) · [Privacy](PRIVACY.md)
 
-## 연락은 편하게, 딴길은 짧게
+Ever opened Instagram to reply to one message, then ended up scrolling?
 
-- **DM 바로 열기** — 대화와 답장에 집중하세요.
-- **피드·게시물·탐색 이동 제한** — 콘텐츠 피드로 새는 동선을 줄입니다.
-- **릴스 연속 탐색 차단** — 친구가 DM으로 보낸 릴스는 확인할 수 있지만, 다음 릴스로 계속 넘기는 동작은 막습니다.
-- **릴스를 위·아래로 밀면 대화방 복귀** — 받은 영상만 보고 원래 대화로 돌아오세요.
-- **메모 영역 숨김** — DM 목록을 간결하게 유지합니다.
-- **밝은 테마 / 어두운 테마** — 익숙하고 단순한 화면으로 사용하세요.
-- **사진 전송과 선택적 DM 알림 연결** — 메시지에 필요한 기능은 유지합니다.
+DirectOnly opens your Instagram inbox directly so you can reply, stay connected, and get back to your day. Built for people who want the conversation without the content feed.
 
-> ‘No 릴스’는 DM으로 받은 영상까지 지운다는 뜻이 아니라, 끝없는 릴스 탐색을 막는다는 의미입니다. 사용 시간을 측정하거나 특정 절약 시간을 보장하지 않습니다.
+## What it does
 
-## 다운로드
+- Opens Instagram DMs directly.
+- Restricts navigation to the feed, posts and Explore.
+- Stops endless Reels browsing: you can watch a Reel shared in a DM, then swipe up or down to return to the conversation.
+- Hides Notes from the inbox.
+- Offers a simple light or dark theme.
+- Lets you choose photos and videos using Android’s media picker.
+- Optionally relays DM alerts from the official Instagram app.
 
-[최신 테스트 버전 다운로드](https://github.com/qmfvkn/contact-only/releases)
+“No endless Reels” refers to browsing restrictions, not removing videos sent by friends. The app does not measure or guarantee a particular amount of time saved.
 
-현재 **0.5.8 테스트 배포판**입니다. 개인 사용과 피드백을 위한 실험 앱이며, 모든 기기에서의 동작을 보장하지 않습니다.
+## Download and install
 
-Instagram / Meta / Samsung과 제휴하거나 승인받은 앱이 아닙니다. Instagram 웹 DM을 이용하는 비공식 클라이언트입니다.
+**[Download DirectOnly 0.5.9 for Android](https://github.com/qmfvkn/contact-only/releases/download/v0.5.9-sample/directonly-0.5.9-android.apk)**
 
-## 설치와 제한
+[Release notes, source archive and SHA-256 checksums](https://github.com/qmfvkn/contact-only/releases/tag/v0.5.9-sample)
 
-Android 8 이상을 대상으로 합니다. 공식 Instagram 앱은 메시지 보기에는 필요하지 않지만, 알림 연결에는 설치·로그인 및 사용자 권한 허용이 필요합니다. 웹에서 로그인하는 계정과 공식 앱 계정을 맞추세요.
+- Requires Android 8.0 or newer.
+- Sign in directly on Instagram’s website inside the app.
+- Native app controls follow your phone’s language: English by default, Korean as **DM만**. Instagram’s own interface follows its language/account settings.
+- Updating an existing distribution sample keeps the same application ID and signing identity.
+- The official Instagram app is not required for viewing DMs. It **is required for notification relay**, with login, DM alerts and the relevant Android permissions enabled. Use the same account in both apps.
 
-알림 접근 서비스를 포함하므로, GitHub에서 받은 APK도 일부 기기/지역의 Play Protect 정책에 따라 설치가 차단될 수 있습니다. 보호 기능 해제를 설치 요건으로 요구하지 않습니다. Instagram 웹 변경에 따라 기능이 깨질 수 있으며 통화 지원은 보장하지 않습니다.
+This is an **experimental prerelease**, with limited device testing. Instagram website changes may break filters or messaging behavior. Voice/video calls are not guaranteed. Some devices may block installation or notification access under Play Protect or restricted-settings policies; disabling security protections is not a requirement.
 
-0.5.8은 제한된 실기기 검증을 거친 시험 배포 버전입니다. 모든 기기에서의 설치와 동작을 검증한 버전은 아닙니다.
+DirectOnly is an unofficial web client. It is not affiliated with, endorsed by, or approved by Instagram, Meta or Samsung.
 
-## 개인정보
+## Privacy
 
-[개인정보 처리 설명](PRIVACY.md)을 확인하세요. 비밀번호와 메시지는 Instagram 웹에서 처리하며, 앱 개발자의 별도 서버로 전송하지 않습니다. 이것이 Instagram이나 Android/WebView 제공자의 데이터 처리까지 없다는 뜻은 아닙니다.
+The app has no developer-operated server, advertising SDK or analytics SDK. Instagram handles login and messaging. Cookies and web data may remain in the app’s private device storage until cleared. Photo access is limited to items you select.
 
-## 빌드
+Notification relay is off by default. Android notification access is a broad permission; the app processes only Instagram notifications and does not copy sender names or message contents into its own alerts. See the [privacy explanation](PRIVACY.md) for details, including third-party data handling and how to revoke access.
 
-JDK 17과 Android SDK platform 35가 필요합니다. Android Studio에서 이 폴더를 열거나 ANDROID_HOME을 설정한 뒤 실행합니다.
+## Build from source
 
-Windows: `gradlew.bat testReleaseUnitTest lintRelease assembleRelease`
+Use JDK 17 and Android SDK platform 35. Open this folder in Android Studio, or configure ANDROID_HOME and run:
 
-macOS/Linux: `sh gradlew testReleaseUnitTest lintRelease assembleRelease`
+```sh
+# Windows
+gradlew.bat testReleaseUnitTest lintRelease assembleRelease
 
-생성된 Release APK는 서명되지 않습니다. 배포 서명 키는 공개하지 않으며 같은 설치 앱 업데이트에는 같은 서명이 필요합니다.
+# macOS / Linux
+sh gradlew testReleaseUnitTest lintRelease assembleRelease
+```
 
-JavaScript 검사: `node tests/reel-script.test.cjs`, `node tests/guard-script.test.cjs`, `node tests/wallpaper-script.test.cjs`
+The generated release APK is unsigned. Distribution signing keys are private; an update to an installed app requires the same signature.
 
-## 공개 범위와 권리
+JavaScript regression checks:
 
-종·톱니바퀴·앱 아이콘은 프로젝트에서 구성한 벡터입니다. 삼성 앱에서 모은 OneUIProject 아이콘은 이 소스와 샘플 APK에 포함하지 않습니다.
+```sh
+node tests/guard-script.test.cjs
+node tests/reel-script.test.cjs
+node tests/wallpaper-script.test.cjs
+```
 
-프로젝트 전체의 오픈소스 라이선스는 아직 선택하지 않았습니다. 공개 저장소라는 이유만으로 무제한 재사용을 허가한 것은 아닙니다. 외부 구성요소는 [출처 안내](THIRD-PARTY-NOTICES.md)를 확인하세요.
+English strings live in app/src/main/res/values/strings.xml; Korean strings live in values-ko/strings.xml.
 
-화면 수정 방식에 대한 Instagram 이용약관상 허용 여부는 별도 검토가 남아 있습니다. 이 프로젝트 공개는 적법성이나 Meta의 승인을 보증하지 않습니다.
+## Rights and limitations
+
+The bell, gear and app icons are project-created vectors. Icons collected from Samsung apps through OneUIProject are not included.
+
+A project-wide open-source license has not been selected. Public availability does not grant unrestricted reuse. [Third-party notices](THIRD-PARTY-NOTICES.md) apply to their respective components, not to the entire project.
+
+Compatibility with Instagram’s terms for this interface-modification approach still needs separate review. Publication is not a guarantee of legal clearance or Meta approval.
+
+Feedback: [GitHub Issues](https://github.com/qmfvkn/contact-only/issues). Please do not post passwords, authentication codes or private conversations.
