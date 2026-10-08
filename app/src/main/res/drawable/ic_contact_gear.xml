@@ -1,0 +1,5 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="24dp" android:height="24dp" android:viewportWidth="24" android:viewportHeight="24">
+    <!-- Original six-tooth gear constructed from polar coordinates. -->
+    <path android:fillColor="#00000000" android:strokeColor="#202228" android:strokeWidth="1.7" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M9.265,5.556L10.004,2.61L13.996,2.61L14.735,5.556L16.213,6.41L19.134,5.576L21.13,9.033L18.948,11.147L18.948,12.853L21.13,14.967L19.134,18.424L16.213,17.59L14.735,18.444L13.996,21.39L10.004,21.39L9.265,18.444L7.787,17.59L4.866,18.424L2.87,14.967L5.052,12.853L5.052,11.147L2.87,9.033L4.866,5.576L7.787,6.41Z" />
+    <path android:fillColor="#00000000" android:strokeColor="#202228" android:strokeWidth="1.7" android:pathData="M15,12A3,3 0,1 1,9 12A3,3 0,1 1,15 12" />
+</vector>
