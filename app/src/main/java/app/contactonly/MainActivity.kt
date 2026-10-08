@@ -353,7 +353,7 @@ class MainActivity : Activity() {
             }.show()
     }
     @Deprecated("Legacy activity result")
-    override fun onAictivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 100) {
             val result = if (resultCode != RESULT_OK || data == null) null
@@ -379,4 +379,3 @@ class MainActivity : Activity() {
     }
     override fun onDestroy() { picker?.onReceiveValue(null); picker = null; web.destroy(); wallpaper.setImageDrawable(null); wallpaperBitmap?.recycle(); super.onDestroy() }
 }
-른
